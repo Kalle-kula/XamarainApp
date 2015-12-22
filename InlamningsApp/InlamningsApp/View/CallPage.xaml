@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InlamningsApp.View.CallPage">
+<ScrollView>
+  <StackLayout>
+    <Label Text="Knappa in det nummer du vill ringa: "/>
+    <Entry x:Name="PhoneNo" Placeholder="Telefonnummer"/>
+    <Entry x:Name="PhoneDelay"/>
+    <Button x:Name="BtnCall" Text="Ring" Clicked="BtnCall_OnClicked"/>
+    <Entry x:Name="TimeLeftCall"/>
+    <Label Text="A joke while you wait?"/>
+    <Button x:Name="BtnJoke" Text="Joke me" Clicked="BtnJoke_OnClicked"/>
+  <Entry x:Name="JokeApi"/>
+  </StackLayout>
+</ScrollView>
+</ContentPage>

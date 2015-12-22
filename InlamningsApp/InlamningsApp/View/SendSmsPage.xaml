@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InlamningsApp.View.SendSmsPage">
+  <ScrollView>
+    <StackLayout>
+      <Label Text="Knappa in nummer: "/>
+      <Entry x:Name="SspNumberEntry" Placeholder="Telefonnummer"/>
+      <Label Text="Eller välj från dina Kontakter: "/>
+      <Button x:Name="SspContactBtn" Text="Öppna kontakter" Clicked="SspContactBtn_OnClicked"></Button>
+      <Button x:Name="SmsSendBtn" Text="Skicka" Clicked="SmsSendBtn_OnClicked"/>
+      <Label Text="A joke while you wait?"/>
+      <Button x:Name="BtnJoke" Text="Joke me" Clicked="BtnJoke_OnClicked"/>
+      <Entry x:Name="JokeApi"/>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

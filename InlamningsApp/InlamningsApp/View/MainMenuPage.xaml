@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InlamningsApp.View.MainMenuPage">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout>
+        <!--<Button x:Name="ButtonTime" Text="Ställ in tidsfördröjningen" Clicked="ButtonTime_OnClicked"/>-->
+
+        <Label Text="Knappa in antal minuter(s) fördröjning: "/>
+        <Label x:Name="StepperLabel" HorizontalOptions="CenterAndExpand"/>
+        <Stepper x:Name="StepperDelay" Minimum="0" Maximum="1440" Value="0" Increment="1" HorizontalOptions="Center" ValueChanged="StepperDelay_OnValueChanged"/>
+        <Button x:Name="SaveDelayButton" Text="Spara" Clicked="SaveDelayButton_OnClicked"/>
+        
+        <Label x:Name="DelayLabelMain"/>
+        <Button x:Name="ButtonSms" Text="Skicka SMS" Clicked="ButtonSms_OnClicked"/>
+        <Button x:Name="ButtonCall" Text="Ringa"/>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>
