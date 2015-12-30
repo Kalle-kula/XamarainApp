@@ -17,6 +17,7 @@ namespace InlamningsApp.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            AdvancedTimer.Forms.Plugin.Droid.AdvancedTimerImplementation.Init();
             LoadApplication(new App());
         }
     }

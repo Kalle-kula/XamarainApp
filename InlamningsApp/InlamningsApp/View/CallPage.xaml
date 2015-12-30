@@ -9,9 +9,9 @@
     <Entry x:Name="PhoneDelay"/>
     <Button x:Name="BtnCall" Text="Ring" Clicked="BtnCall_OnClicked"/>
     <Entry x:Name="TimeLeftCall"/>
-    <Label Text="A joke while you wait?"/>
+    <Label Text="Ett skämt medans du väntar?"/>
     <Button x:Name="BtnJoke" Text="Joke me" Clicked="BtnJoke_OnClicked"/>
-  <Entry x:Name="JokeApi"/>
+  <Label x:Name="JokeLabel"/>
   </StackLayout>
 </ScrollView>
 </ContentPage>

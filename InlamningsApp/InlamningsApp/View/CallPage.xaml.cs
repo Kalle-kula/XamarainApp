@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InlamningsApp.Interface;
 using Xamarin.Forms;
+using InlamningsApp.Services;
 
 namespace InlamningsApp.View
 {
@@ -12,6 +13,9 @@ namespace InlamningsApp.View
     {
         public DelayDB _delayDb;
         public Delay delay;
+
+        private WebAPI wa = new WebAPI();
+        string joke = string.Empty;
         public CallPage()
         {
             InitializeComponent();
@@ -23,21 +27,19 @@ namespace InlamningsApp.View
             var dialer = DependencyService.Get<IPhoneService>();
             if (dialer != null)
             {
-
                 delay = new Delay();
                 _delayDb = new DelayDB();
-                double lateDelay = _delayDb.GetDelays(delay.TimeDelay);
-                int latestDelay = Convert.ToInt32(lateDelay);
-
-                //OnTimedEvent();
+                double DBlatestDelay = _delayDb.GetDelays(delay.TimeDelay);
+                int latestDelay = Convert.ToInt32(DBlatestDelay);
                 await Task.Delay(latestDelay);
+
                 dialer.Call(PhoneNo.Text);
             }
         }
 
         private void BtnJoke_OnClicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            JokeLabel.Text = wa.GetJokeFromApi(joke);
         }
     }
 }

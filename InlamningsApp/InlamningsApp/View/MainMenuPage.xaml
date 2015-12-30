@@ -14,7 +14,7 @@
         
         <Label x:Name="DelayLabelMain"/>
         <Button x:Name="ButtonSms" Text="Skicka SMS" Clicked="ButtonSms_OnClicked"/>
-        <Button x:Name="ButtonCall" Text="Ringa"/>
+        <Button x:Name="ButtonCall" Text="Ringa" Clicked="ButtonCall_OnClicked"/>
       </StackLayout>
     </ScrollView>
   </ContentPage.Content>

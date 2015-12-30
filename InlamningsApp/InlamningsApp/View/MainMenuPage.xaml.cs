@@ -20,11 +20,6 @@ namespace InlamningsApp.View
             InitializeComponent();
         }
 
-        //private void ButtonTime_OnClicked(object sender, EventArgs e)
-        //{
-        //    Navigation.PushAsync(new SetTimePage());
-        //}
-
         private void StepperDelay_OnValueChanged(object sender, ValueChangedEventArgs e)
         {
             StepperLabel.Text = (StepperDelay.Value).ToString();
@@ -38,13 +33,12 @@ namespace InlamningsApp.View
 
             if (StepperDelay.Value >= 1)
             {
-                delay.TimeDelay = StepperDelay.Value;
+                //Sätter delayn till minuter istället för millisekunder
+                delay.TimeDelay = (StepperDelay.Value) * 60000;
 
                 _delayDb.AddDelay(delay);
                 double lateDelay = _delayDb.GetDelays(delay.TimeDelay);
-                
 
-                //var setDelay = _delayDb.GetDelay(delay.Id);
                 DelayLabelMain.Text = "Din fördröjning är satt till " + lateDelay + " minut(er)";
             }
             else DelayLabelMain.Text = "Du måste sätta en fördröjning";
@@ -53,7 +47,20 @@ namespace InlamningsApp.View
 
         private void ButtonSms_OnClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SendSmsPage());
+            if (StepperDelay.Value >= 1)
+            {
+                Navigation.PushAsync(new SendSmsPage());
+            }
+            else DelayLabelMain.Text = "Du måste sätta en fördröjning";
+        }
+
+        private void ButtonCall_OnClicked(object sender, EventArgs e)
+        {
+            if (StepperDelay.Value >= 1)
+            {
+                Navigation.PushAsync(new CallPage());
+            }
+            else DelayLabelMain.Text = "Du måste sätta en fördröjning";
         }
     }
 }

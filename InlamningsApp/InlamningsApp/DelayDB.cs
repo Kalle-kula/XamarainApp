@@ -27,9 +27,6 @@ namespace InlamningsApp
         public double GetDelays(double TimeDelay) 
         {
            return _sqlconnection.Table<Delay>().LastOrDefault(t => t.TimeDelay == TimeDelay).TimeDelay;
-
-            //return (from c in _sqlconnection.Table<Delay>() select c).ToList();
-            //var latestDelay = _sqlconnection.Table<Delay>().LastOrDefault(d => d.Id == this.)
         }
 
     }

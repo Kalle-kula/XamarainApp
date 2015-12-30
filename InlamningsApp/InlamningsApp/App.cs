@@ -13,6 +13,7 @@ namespace InlamningsApp
         {
             // The root page of your application
             MainPage = new NavigationPage(new MainMenuPage());
+            //hepp
         }
 
         protected override void OnStart()
