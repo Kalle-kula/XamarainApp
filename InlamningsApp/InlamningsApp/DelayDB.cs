@@ -23,7 +23,7 @@ namespace InlamningsApp
         public void AddDelay(Delay delay)
         {
             //Kollar så att fördröjningen är sparad som den ska
-            string addedDelay = "delay: " + delay.TimeDelay + "millisekunder";
+            string addedDelay = "delay: " + delay.TimeDelay + " millisekunder";
             Insights.Track("Delay added", new Dictionary<string, string>
             {
                 {"Saved delay", addedDelay}
