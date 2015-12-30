@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace InlamningsApp.View
 
         private WebAPI wa = new WebAPI();
         string joke = string.Empty;
+
+        
         public CallPage()
         {
             InitializeComponent();
@@ -32,6 +35,7 @@ namespace InlamningsApp.View
                 double DBlatestDelay = _delayDb.GetDelays(delay.TimeDelay);
                 int latestDelay = Convert.ToInt32(DBlatestDelay);
                 await Task.Delay(latestDelay);
+                
 
                 dialer.Call(PhoneNo.Text);
             }

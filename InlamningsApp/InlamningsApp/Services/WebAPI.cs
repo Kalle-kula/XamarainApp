@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using unirest_net.http;
 using Newtonsoft.Json;
+using Xamarin;
 
 namespace InlamningsApp.Services
 {
@@ -15,9 +16,13 @@ namespace InlamningsApp.Services
         
         public string GetJokeFromApi(string joke)
         {
-            //try
-            //    {
-            string errorMessage = string.Empty;
+            var handle = Insights.TrackTime("Time to get api call");
+
+            try
+            {
+                string errorMessage = string.Empty;
+
+                handle.Start();
             
             HttpResponse<string> jsonResponse = Unirest.get("https://webknox-jokes.p.mashape.com/jokes/oneLiner")
             .header("X-Mashape-Key", "UMJJhgaBWumshuvL0Yrr8EhR6CfNp1bpx1Xjsnt2Gzhihdd7FF")
@@ -32,18 +37,24 @@ namespace InlamningsApp.Services
                 return jokeRaw;
             }
 
+                handle.Stop();
+
             //!= 200
             errorMessage = "Nått gick fel, inget skämt =(";
             return errorMessage;
-            //    }
+            }
 
-            //catch (Exception ex)
-            //{
-            //    ////Log exception to insight
-            //    //Insights.Report(ex);
-            //    //errorMessage = "Wrong something went.  Connected to the interwebz are you, hmm?";
-            //    //return errorMessage;
-            //}
+            catch (Exception ex)
+            {
+                ////Log exception to insight
+                Insights.Report(ex, new Dictionary<string, string>
+                { 
+                { "Methodname", "GetJokeFromApi()" },
+                { "Where", "WebAPI.cs"}
+                });
+                string errorMessage = "Something went wrong, are you sure you have a connection?";
+                return errorMessage;
+            }
         }
     }
 }

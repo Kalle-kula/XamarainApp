@@ -12,6 +12,5 @@ namespace InlamningsApp
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public double TimeDelay { get; set; }
-        //public string TextMsg { get; set; }
     }
 }

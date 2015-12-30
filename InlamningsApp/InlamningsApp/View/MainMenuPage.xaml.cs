@@ -36,10 +36,12 @@ namespace InlamningsApp.View
                 //Sätter delayn till minuter istället för millisekunder
                 delay.TimeDelay = (StepperDelay.Value) * 60000;
 
+                // Sparar delayn i DB:n
                 _delayDb.AddDelay(delay);
-                double lateDelay = _delayDb.GetDelays(delay.TimeDelay);
 
-                DelayLabelMain.Text = "Din fördröjning är satt till " + lateDelay + " minut(er)";
+                //double lateDelay = _delayDb.GetDelays(delay.TimeDelay);
+
+                DelayLabelMain.Text = "Din fördröjning är satt till " + StepperDelay.Value + " minut(er)";
             }
             else DelayLabelMain.Text = "Du måste sätta en fördröjning";
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InlamningsApp.Interface;
 using SQLite;
+using Xamarin;
 using Xamarin.Forms;
 
 namespace InlamningsApp
@@ -21,11 +22,18 @@ namespace InlamningsApp
 
         public void AddDelay(Delay delay)
         {
+            //Kollar så att fördröjningen är sparad som den ska
+            string addedDelay = "delay: " + delay.TimeDelay + "millisekunder";
+            Insights.Track("Delay added", new Dictionary<string, string>
+            {
+                {"Saved delay", addedDelay}
+            });
             _sqlconnection.Insert(delay);
         }
 
         public double GetDelays(double TimeDelay) 
         {
+            //Hämtar den senaste delayen som är sparad i DB:n 
            return _sqlconnection.Table<Delay>().LastOrDefault(t => t.TimeDelay == TimeDelay).TimeDelay;
         }
 

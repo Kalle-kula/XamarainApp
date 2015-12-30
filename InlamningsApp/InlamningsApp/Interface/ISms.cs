@@ -9,5 +9,6 @@ namespace InlamningsApp.Interface
     public interface ISms
     {
         void SendSms(string text);
+        void SendSmsMsg(string text);
     }
 }

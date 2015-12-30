@@ -6,10 +6,10 @@
     <StackLayout>
       <Label Text="Knappa in nummer: "/>
       <Entry x:Name="SspNumberEntry" Placeholder="Telefonnummer"/>
-      <!--<Label Text="Eller välj från dina Kontakter: "/>
-      <Button x:Name="SspContactBtn" Text="Öppna kontakter" Clicked="SspContactBtn_OnClicked"></Button>-->
+      <Label Text="Skriv in ditt meddelande: "/>
+      <Entry x:Name="MsgEntry" Placeholder="Meddelande"/>
       <Button x:Name="SmsSendBtn" Text="Skicka" Clicked="SmsSendBtn_OnClicked"/>
-      <Label x:Name="TimerLabel"/>
+      <Label x:Name="TimerLabel" Text="{Binding TimeElapsed}"/>
       <Label Text="Ett skämt medans du väntar?"/>
       <Button x:Name="BtnJoke" Text="Joke me" Clicked="BtnJoke_OnClicked"/>
       <Label x:Name="JokeLabel"/>
