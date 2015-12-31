@@ -39,7 +39,7 @@ namespace InlamningsApp.Services
                 jokeRaw = jokeRaw.Replace("text", "Joke");
                 jokeRaw = jokeRaw.Replace("{", "");
                 jokeRaw = jokeRaw.Replace("}", "");
-                jokeRaw = jokeRaw.Replace("\u2019", "'");
+                //jokeRaw = jokeRaw.Replace("\u2019", "'");
                 return jokeRaw;
             }
 
