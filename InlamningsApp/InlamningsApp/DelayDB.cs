@@ -33,7 +33,7 @@ namespace InlamningsApp
 
         public double GetDelays(double TimeDelay) 
         {
-            //Hämtar den senaste delayen som är sparad i DB:n 
+            //Hämtar den senaste delayen som är sparad i DB:n (alltså den vi satte)
            return _sqlconnection.Table<Delay>().LastOrDefault(t => t.TimeDelay == TimeDelay).TimeDelay;
         }
 

@@ -32,8 +32,7 @@ namespace InlamningsApp.View
             
             if (smsSender != null)
             {
-
-                //Instansierar db:n
+                
                 delay = new Delay();
                 _delayDb = new DelayDB();
 
@@ -53,7 +52,7 @@ namespace InlamningsApp.View
             }
 
         }
-        
+        //Hämtar skämt från mashape.com medans man väntar på fördröjningen
         private void BtnJoke_OnClicked(object sender, EventArgs e)
         {
             JokeLabel.Text = wa.GetJokeFromApi(joke);
